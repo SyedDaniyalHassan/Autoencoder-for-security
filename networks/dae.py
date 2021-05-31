@@ -11,7 +11,7 @@ from keras.models import Sequential , load_model
 class Dae :
     def __init__(self,classifier= 'resnet',epochs=200, batch_size=128, load_weights=True):
         self.name               = 'DAE'
-        self.model_filename     = 'networks/models/Dae_best_1.h5'
+        self.model_filename     = 'networks/models/Dae_best.h5'
         self.num_classes        = 10
         self.input_shape        = 32, 32, 3
         self.batch_size         = batch_size
@@ -53,8 +53,8 @@ class Dae :
     def color_preprocessing(self, x_train, x_test):
         x_train = x_train.astype('float32')
         x_test = x_test.astype('float32')
-        mean = [125.307, 122.95, 113.865]
-        std  = [62.9932, 62.0887, 66.7048]
+        mean = [0, 0, 0]#[125.307, 122.95, 113.865]
+        std  = [255, 255, 255]#[62.9932, 62.0887, 66.7048]
         for i in range(3):
             x_train[:,:,:,i] = (x_train[:,:,:,i] - mean[i]) / std[i]
             x_test[:,:,:,i] = (x_test[:,:,:,i] - mean[i]) / std[i]
@@ -94,8 +94,8 @@ class Dae :
         if imgs.ndim < 4:
             imgs = np.array([imgs])
         imgs = imgs.astype('float32')
-        mean = [125.307, 122.95, 113.865] #[0, 0, 0]
-        std  = [62.9932, 62.0887, 66.7048]#[255, 255, 255]
+        mean = [0, 0, 0]
+        std  = [255, 255, 255]
         for img in imgs:
             for i in range(3):
                 img[:,:,i] = (img[:,:,i] - mean[i]) / std[i]
