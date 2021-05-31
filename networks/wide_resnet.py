@@ -1,4 +1,5 @@
 import keras
+import tensorflow as tf
 import numpy as np
 from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator
@@ -107,8 +108,8 @@ class WideResNet:
     def train(self):
         # load data
         (x_train, y_train), (x_test, y_test) = cifar10.load_data()
-        y_train = keras.utils.to_categorical(y_train, self.num_classes)
-        y_test = keras.utils.to_categorical(y_test, self.num_classes)
+        y_train = tf.keras.utils.to_categorical(y_train, self.num_classes)
+        y_test = tf.keras.utils.to_categorical(y_test, self.num_classes)
         
         # color preprocessing
         x_train, x_test = self.color_preprocessing(x_train, x_test)
