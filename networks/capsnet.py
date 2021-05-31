@@ -1,4 +1,5 @@
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
+
 import numpy as np
 
 from networks.capsulenet.capsule_net import CapsNetv1, train as train_net
