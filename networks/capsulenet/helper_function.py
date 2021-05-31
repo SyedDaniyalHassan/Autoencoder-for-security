@@ -1,7 +1,7 @@
 import os, math, csv
 import matplotlib.pyplot as plt
 import numpy as np
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 from pandas import read_csv
 
 def load_cifar_10():
