@@ -117,7 +117,7 @@ class ResNet:
 
     def train(self , x_train=0 ,x_test=0):
         # load data
-        if x_train==0  ==0 and x_test==0 :
+        if x_train==0 and x_test==0 :
             (x_train, y_train), (x_test, y_test) = cifar10.load_data()
         y_train = tf.keras.utils.to_categorical(y_train, self.num_classes)
         y_test = tf.keras.utils.to_categorical(y_test, self.num_classes)
