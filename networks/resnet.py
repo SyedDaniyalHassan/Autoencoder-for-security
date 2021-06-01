@@ -122,6 +122,8 @@ class ResNet:
         y_test = tf.keras.utils.to_categorical(y_test, self.num_classes)
         
         # color preprocessing
+        x_train =x_train.astype("float32") /255
+        x_test = x_test.astype("float32") /255
         #x_train, x_test = self.color_preprocessing(x_train, x_test)
 
         # build network
