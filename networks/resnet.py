@@ -115,15 +115,16 @@ class ResNet:
                 kernel_regularizer=regularizers.l2(self.weight_decay))(x)
         return x
 
-    def train(self):
+    def train(self , x_train=0 ,x_test=0):
         # load data
-        (x_train, y_train), (x_test, y_test) = cifar10.load_data()
+        if x_train==0  ==0 and x_test==0 :
+            (x_train, y_train), (x_test, y_test) = cifar10.load_data()
         y_train = tf.keras.utils.to_categorical(y_train, self.num_classes)
         y_test = tf.keras.utils.to_categorical(y_test, self.num_classes)
         
         # color preprocessing
-        x_train =x_train.astype("float32") /255
-        x_test = x_test.astype("float32") /255
+        #x_train =x_train.astype("float32") /255
+        #x_test = x_test.astype("float32") /255
         #x_train, x_test = self.color_preprocessing(x_train, x_test)
 
         # build network
