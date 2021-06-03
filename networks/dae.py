@@ -9,7 +9,7 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 from keras.models import Sequential , load_model
 
 class Dae :
-    def __init__(self,classifier= 'resnet',epochs=200, batch_size=128, load_weights=True):
+    def __init__(self,classifier= 'dae_resnet',epochs=200, batch_size=128, load_weights=True):
         self.name               = 'DAE'
         self.model_filename     = 'networks/models/Dae_best.h5'
         self.num_classes        = 10
